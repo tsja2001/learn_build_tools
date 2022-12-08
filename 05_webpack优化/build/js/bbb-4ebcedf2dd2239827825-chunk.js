@@ -1,0 +1,1 @@
+(self.webpackChunkwebpack=self.webpackChunkwebpack||[]).push([[892],{476:()=>{var e=document.createElement("h1");e.textContent="2 Page",document.body.append(e)}}]);

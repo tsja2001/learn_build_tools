@@ -1,0 +1,36 @@
+{
+  "name": "06_terser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "b": "webpack --config ./config/comm.config.js",
+    "s": "webpack-dev-server --config ./config/comm.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "axios": "^1.2.1",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.2",
+    "css-minimizer-webpack-plugin": "^4.2.2",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "style-loader": "^3.3.1",
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "terser": "^5.16.1",
+    "terser-webpack-plugin": "^5.3.6"
+  }
+}
