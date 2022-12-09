@@ -1,50 +1,51 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const miniCssExtractPlugin = require("mini-css-extract-plugin");
-const terserWebpackPlugin = require("terser-webpack-plugin");
-const cssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin')
+const terserWebpackPlugin = require('terser-webpack-plugin')
+const cssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+// const { webpack } = require('webpack')
 
-module.exports = {
-  mode: "production",
+const commonConfig = {
+  mode: 'production',
   entry: {
-    index: "./src/index.js",
-    main: "./src/main.js",
+    index: './src/index.js',
+    main: './src/main.js',
   },
   devtool: false,
   output: {
-    path: path.resolve(__dirname, "./build"),
-    filename: "js/[name]-[contenthash]-bundle.js",
+    path: path.resolve(__dirname, '../build'),
+    filename: 'js/[name]-[contenthash]-bundle.js',
     clean: true,
   },
   module: {
     rules: [
       {
         test: /\.j|tsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.css?$/,
-        use: [miniCssExtractPlugin.loader, "css-loader"],
+        use: [miniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
     }),
     new miniCssExtractPlugin({
-      filename: "css/[name].css",
-      chunkFilename: "css/[name].css",
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[name].css',
     }),
   ],
 
   externals: {
-    react: "React",
-    "react-dom": "ReactDOM",
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
       maxSize: 2000000000,
       minSize: 1,
       cacheGroups: {},
@@ -74,4 +75,15 @@ module.exports = {
       new cssMinimizerPlugin({}),
     ],
   },
-};
+}
+
+module.exports = (env) => {
+  console.log(env)
+  if (env.production) {
+    console.log('生产环境')
+  } else {
+    console.log('开发环境')
+  }
+
+  return commonConfig
+}

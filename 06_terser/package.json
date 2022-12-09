@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "b": "webpack --config ./config/comm.config.js",
-    "s": "webpack-dev-server --config ./config/comm.config.js"
+    "b": "webpack --config ./config/comm.config.js --env production",
+    "s": "webpack-dev-server --config ./config/comm.config.js --env development"
   },
   "keywords": [],
   "author": "",
